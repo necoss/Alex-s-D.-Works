@@ -1,0 +1,185 @@
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.container {
+  max-width: 1170px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.go-back--button {
+  width: 11%;
+  text-decoration: none;
+  font-family: "Poppins";
+  padding: 5px 10px;
+  margin-top: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: black;
+  background: #ffffff;
+  -webkit-box-shadow: 5px 5px 52px #e0e0e0, -5px -5px 52px #ffffff;
+          box-shadow: 5px 5px 52px #e0e0e0, -5px -5px 52px #ffffff;
+  border: 2px solid transparent;
+  border-radius: 5px;
+  cursor: pointer;
+  -webkit-transition: 0.4s ease;
+  transition: 0.4s ease;
+}
+.go-back--button:hover {
+  color: white;
+  background-color: rgb(97, 91, 114);
+}
+
+.password-generator--body {
+  background: #8A2387;
+  background: -webkit-gradient(linear, left top, right top, from(#F27121), color-stop(#E94057), to(#8A2387));
+  background: linear-gradient(to right, #F27121, #E94057, #8A2387);
+  background-size: 300% 300%;
+  font-family: "Poppins";
+  -webkit-animation: animatedBackground 10s ease infinite;
+          animation: animatedBackground 10s ease infinite;
+}
+@-webkit-keyframes animatedBackground {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+@keyframes animatedBackground {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+.password-generator--body .password-generator {
+  border-radius: 35px;
+  background: #ffffff;
+  -webkit-box-shadow: 5px 5px 52px #e0e0e0, -5px -5px 52px #ffffff;
+          box-shadow: 5px 5px 52px #e0e0e0, -5px -5px 52px #ffffff;
+  padding: 20px 30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+.password-generator--body .password-generator .password-generator--article {
+  -webkit-text-stroke: 1px rgba(30, 22, 54, 0.7);
+  color: transparent;
+  font-size: 55px;
+  font-family: "Poppins";
+  font-weight: bold;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(30, 22, 54, 0.7)), to(rgba(30, 22, 54, 0.7)));
+  background-image: linear-gradient(rgba(30, 22, 54, 0.7), rgba(30, 22, 54, 0.7));
+  background-repeat: no-repeat;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -o-background-clip: text;
+  background-position: -590px 0;
+  -webkit-animation: backcolor 9s linear infinite alternate;
+          animation: backcolor 9s linear infinite alternate;
+}
+@-webkit-keyframes backcolor {
+  100% {
+    background-position: 0 0;
+  }
+}
+@keyframes backcolor {
+  100% {
+    background-position: 0 0;
+  }
+}
+.password-generator--body .password-generator .password-generator--shown-password {
+  margin-top: 40px;
+  border: 1px solid #c7c7c7;
+  border-radius: 8px;
+  padding: 7px 12px;
+}
+.password-generator--body .password-generator .password-generator--password-area {
+  cursor: default;
+}
+.password-generator--body .password-generator .password-generator--styles {
+  margin-top: 4px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.password-generator--body .password-generator .password-generator--styles label {
+  padding-right: 5px;
+  color: rgba(30, 22, 54, 0.7);
+  -webkit-transition: 0.2s ease;
+  transition: 0.2s ease;
+}
+.password-generator--body .password-generator .password-generator--styles label:hover {
+  color: black;
+}
+.password-generator--body .password-generator .password-generator--length {
+  margin-top: 23px;
+}
+.password-generator--body .password-generator .password-generator--length input {
+  color: rgba(30, 22, 54, 0.7);
+  font-family: "Poppins";
+  padding: 2px 6px;
+}
+.password-generator--body .password-generator .password-generator--length input:hover, .password-generator--body .password-generator .password-generator--length input:focus {
+  color: black;
+}
+.password-generator--body .password-generator .password-generator--buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.password-generator--body .password-generator .password-generator--buttons .password-generator--generate-button,
+.password-generator--body .password-generator .password-generator--buttons .password-generator--copy-button {
+  padding: 10px 17px;
+  margin-top: 20px;
+  border-radius: 6px;
+  border-color: transparent;
+  cursor: pointer;
+  font-family: "Poppins";
+  transition: all 0.4s cubic-bezier(0.39, 0.5, 0.15, 1.36);
+  -webkit-transition: all 0.4s cubic-bezier(0.39, 0.5, 0.15, 1.36);
+  display: block;
+  color: rgba(30, 22, 54, 0.6);
+  -webkit-box-shadow: rgba(30, 22, 54, 0.4) 0 0px 0px 2px inset;
+          box-shadow: rgba(30, 22, 54, 0.4) 0 0px 0px 2px inset;
+  margin-right: 10px;
+}
+.password-generator--body .password-generator .password-generator--buttons .password-generator--generate-button:hover,
+.password-generator--body .password-generator .password-generator--buttons .password-generator--copy-button:hover {
+  color: rgba(255, 255, 255, 0.85);
+  -webkit-box-shadow: rgba(30, 22, 54, 0.7) 0 80px 0px 2px inset;
+          box-shadow: rgba(30, 22, 54, 0.7) 0 80px 0px 2px inset;
+}
+
+@media (max-width: 480px) {
+  .go-back--button {
+    width: 33%;
+  }
+}
