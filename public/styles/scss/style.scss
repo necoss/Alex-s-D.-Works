@@ -12,11 +12,25 @@
     padding-right: 16px;
 }
 
+//* Roots
+:root {
+    --dark-blue: #09131d;
+    --lavender: #a867d6;
+}
+
+
 //* Mixins
 @mixin flex-center {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+@mixin position-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 //* ================ Go back button ================
@@ -79,10 +93,7 @@
 
         padding: 20px 30px;
 
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        @include position-center();
 
         .password-generator--article {
             -webkit-text-stroke: 1px rgba(30, 22, 54, 0.7);
@@ -186,78 +197,205 @@
     background: linear-gradient(to right, #191654, #43C6AC);
     background-size: 300% 300%;
     animation: animatedBackground 10s ease infinite;
+
+    .calculator {
+        @include position-center();
+
+        font-family: 'Poppins';
+        box-shadow: 5px 5px 52px #e0e0e0,
+            -5px -5px 52px #ffffff;
+        background-color: rgb(27, 27, 27);
+        border-radius: 18px;
+        padding: 20px 30px;
+
+        .calculator--screen {
+            color: white;
+            height: 120px;
+            padding: 10px;
+            display: grid;
+            justify-items: end;
+            align-items: end;
+            margin-bottom: 10px;
+
+            p {
+                font-size: 50px;
+                margin: 0;
+            }
+        }
+
+        .calculator--buttons {
+            display: grid;
+            grid-template-areas:
+                "calc-ac calc-plus-minus calc-percent calc-division"
+                "calc-seven calc-eight calc-nine calc-multiply"
+                "calc-four calc-five calc-six calc-minus"
+                "calc-one calc-two calc-tree calc-plus"
+                "calc-zero calc-zero calc-dot calc-equal";
+
+            grid-gap: 9px;
+            justify-items: center;
+
+            .calc--btn {
+                color: white;
+                font-size: 20px;
+                width: 70px;
+                height: 70px;
+                background: #333;
+                border-radius: 100%;
+                text-align: center;
+                line-height: 70px;
+                cursor: pointer;
+                user-select: none;
+
+                &:hover {
+                    // background: rgb(109, 109, 109);
+                    filter: brightness(140%);
+                }
+
+                &:active {
+                    filter: brightness(90%);
+                }
+            }
+
+            .calc-bg-orange {
+                background: #a867d6;
+            }
+
+            .calc-zero {
+                grid-area: calc-zero;
+                width: 100%;
+                border-radius: 50px;
+            }
+        }
+
+    }
 }
 
-.calculator {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-family: 'Poppins';
-    box-shadow: 5px 5px 52px #e0e0e0,
-        -5px -5px 52px #ffffff;
-    background-color: rgb(14, 14, 14);
-    border-radius: 18px;
-    padding: 20px 30px;
+//* ================ Analog Clock ================
+.analog-clock--body {
+    background: #C6FFDD;
+    background: -webkit-linear-gradient(to right, #f7797d, #FBD786, #C6FFDD);
+    background: linear-gradient(to right, #f7797d, #FBD786, #C6FFDD);
+    
+    background-size: 300% 300%;
+    animation: animatedBackground 10s ease infinite;
 
-    .calculator--screen {
-        color: white;
-        height: 120px;
-        padding: 10px;
-        display: grid;
-        justify-items: end;
-        align-items: end;
-        margin-bottom: 10px;
-        p{
-            font-size: 50px;
-            margin: 0;
-        }
-    }
+    .analog-clock {
+        @include position-center();
 
-    .calculator--buttons {
-        display: grid;
-        // grid-template-columns: 1fr 1fr 1fr 1fr;
-        grid-template-areas: 
-            "calc-ac calc-plus-minus calc-percent calc-division"
-            "calc-seven calc-eight calc-nine calc-multiply"
-            "calc-four calc-five calc-six calc-minus"
-            "calc-one calc-two calc-tree calc-plus"
-            "calc-zero calc-zero calc-dot calc-equal";
+        background-color: var(--dark-blue);
+        width: 320px;
+        height: 320px;
+        border: 7px solid var(--dark-blue);
+        border-radius: 50%;
+        padding: 30px;
+        box-shadow:
+            -4px -4px 10px rgba(67, 67, 67, 0.5),
+            inset 4px 4px 10px rgba(0, 0, 0, 0.5),
+            inset -4px -4px 10px rgba(67, 67, 67, 0.5),
+            4px 4px 10px rgba(0, 0, 0, 0.3);
 
-        grid-gap: 9px;
-        justify-items: center;
-
-        .calc--btn {
-            color: white;
-            font-size: 20px;
-            width: 70px;
-            height: 70px;
-            background: #333;
+        .analog-clock--face {
             border-radius: 100%;
-            text-align: center;
-            line-height: 70px;
-            cursor: pointer;
-            user-select: none;
+            background: var(--dark-blue);
+            overflow: hidden;
 
-            &:hover{
-                // background: rgb(109, 109, 109);
-                filter: brightness(140%);
+            &::after {
+                transform: rotate(90deg);
             }
-            &:active{
-                filter: brightness(90%);
-            }
-        }
 
-        .calc-bg-orange {
-            background: #a867d6;
-        }
-        .calc-zero{
-            grid-area: calc-zero;
-            width: 100%;
-            border-radius: 50px;
+            &::before,
+            &::after,
+            .analog-clock--marking {
+                content: '';
+                position: absolute;
+                left: 49%;
+                top: 0%;
+                z-index: 0;
+                width: 5px;
+                height: 100%;
+                background: var(--lavender);
+            }
+
+            .analog-clock--marking {
+                background: #bdbdcb;
+                width: 3px;
+            }
+
+            .analog-clock--marking-one {
+                transform: rotate(30deg);
+            }
+
+            .analog-clock--marking-two {
+                transform: rotate(60deg);
+            }
+
+            .analog-clock--marking-tree {
+                transform: rotate(120deg);
+            }
+
+            .analog-clock--marking-four {
+                transform: rotate(150deg);
+            }
+
+            .analog-clock--face-inner {
+                position: absolute;
+                top: 10%;
+                left: 10%;
+                width: 80%;
+                height: 80%;
+                background: var(--dark-blue);
+                -webkit-border-radius: 100%;
+                -moz-border-radius: 100%;
+                border-radius: 100%;
+                z-index: 1;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    width: 16px;
+                    height: 16px;
+                    border-radius: 18px;
+                    margin-left: -9px;
+                    margin-top: -6px;
+                    background: #4d4b63;
+                    z-index: 11;
+                }
+
+                .analog-clock--hand {
+                    width: 50%;
+                    right: 50%;
+                    height: 6px;
+                    background: lawngreen;
+                    position: absolute;
+                    top: 50%;
+                    border-radius: 6px;
+                    transform-origin: 100%;
+                    transform: rotate(90deg);
+                    transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+                }
+
+                .analog-clock--hour-hand {
+                    width: 30%;
+                    z-index: 3;
+                }
+
+                .analog-clock--min-hand {
+                    height: 3px;
+                    z-index: 10;
+                    width: 40%;
+                    background: white;
+                }
+                .analog-clock--second-hand{
+                    background: #ee791a;
+                    width: 45%;
+                    height: 2px;
+                }
+            }
         }
     }
-
 }
 
 

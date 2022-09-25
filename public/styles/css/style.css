@@ -13,6 +13,11 @@
   padding-right: 16px;
 }
 
+:root {
+  --dark-blue: #09131d;
+  --lavender: #a867d6;
+}
+
 .go-back--button {
   width: 11%;
   text-decoration: none;
@@ -186,8 +191,7 @@
   -webkit-animation: animatedBackground 10s ease infinite;
           animation: animatedBackground 10s ease infinite;
 }
-
-.calculator {
+.calculator--body .calculator {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -196,11 +200,11 @@
   font-family: "Poppins";
   -webkit-box-shadow: 5px 5px 52px #e0e0e0, -5px -5px 52px #ffffff;
           box-shadow: 5px 5px 52px #e0e0e0, -5px -5px 52px #ffffff;
-  background-color: rgb(14, 14, 14);
+  background-color: rgb(27, 27, 27);
   border-radius: 18px;
   padding: 20px 30px;
 }
-.calculator .calculator--screen {
+.calculator--body .calculator .calculator--screen {
   color: white;
   height: 120px;
   padding: 10px;
@@ -212,18 +216,18 @@
           align-items: end;
   margin-bottom: 10px;
 }
-.calculator .calculator--screen p {
+.calculator--body .calculator .calculator--screen p {
   font-size: 50px;
   margin: 0;
 }
-.calculator .calculator--buttons {
+.calculator--body .calculator .calculator--buttons {
   display: -ms-grid;
   display: grid;
       grid-template-areas: "calc-ac calc-plus-minus calc-percent calc-division" "calc-seven calc-eight calc-nine calc-multiply" "calc-four calc-five calc-six calc-minus" "calc-one calc-two calc-tree calc-plus" "calc-zero calc-zero calc-dot calc-equal";
   grid-gap: 9px;
   justify-items: center;
 }
-.calculator .calculator--buttons .calc--btn {
+.calculator--body .calculator .calculator--buttons .calc--btn {
   color: white;
   font-size: 20px;
   width: 70px;
@@ -238,24 +242,141 @@
       -ms-user-select: none;
           user-select: none;
 }
-.calculator .calculator--buttons .calc--btn:hover {
+.calculator--body .calculator .calculator--buttons .calc--btn:hover {
   -webkit-filter: brightness(140%);
           filter: brightness(140%);
 }
-.calculator .calculator--buttons .calc--btn:active {
+.calculator--body .calculator .calculator--buttons .calc--btn:active {
   -webkit-filter: brightness(90%);
           filter: brightness(90%);
 }
-.calculator .calculator--buttons .calc-bg-orange {
+.calculator--body .calculator .calculator--buttons .calc-bg-orange {
   background: #a867d6;
 }
-.calculator .calculator--buttons .calc-zero {
+.calculator--body .calculator .calculator--buttons .calc-zero {
   -ms-grid-row: 9;
   -ms-grid-column: 1;
   -ms-grid-column-span: 3;
   grid-area: calc-zero;
   width: 100%;
   border-radius: 50px;
+}
+
+.analog-clock--body {
+  background: #C6FFDD;
+  background: -webkit-gradient(linear, left top, right top, from(#f7797d), color-stop(#FBD786), to(#C6FFDD));
+  background: linear-gradient(to right, #f7797d, #FBD786, #C6FFDD);
+  background-size: 300% 300%;
+  -webkit-animation: animatedBackground 10s ease infinite;
+          animation: animatedBackground 10s ease infinite;
+}
+.analog-clock--body .analog-clock {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background-color: var(--dark-blue);
+  width: 320px;
+  height: 320px;
+  border: 7px solid var(--dark-blue);
+  border-radius: 50%;
+  padding: 30px;
+  -webkit-box-shadow: -4px -4px 10px rgba(67, 67, 67, 0.5), inset 4px 4px 10px rgba(0, 0, 0, 0.5), inset -4px -4px 10px rgba(67, 67, 67, 0.5), 4px 4px 10px rgba(0, 0, 0, 0.3);
+          box-shadow: -4px -4px 10px rgba(67, 67, 67, 0.5), inset 4px 4px 10px rgba(0, 0, 0, 0.5), inset -4px -4px 10px rgba(67, 67, 67, 0.5), 4px 4px 10px rgba(0, 0, 0, 0.3);
+}
+.analog-clock--body .analog-clock .analog-clock--face {
+  border-radius: 100%;
+  background: var(--dark-blue);
+  overflow: hidden;
+}
+.analog-clock--body .analog-clock .analog-clock--face::after {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+.analog-clock--body .analog-clock .analog-clock--face::before, .analog-clock--body .analog-clock .analog-clock--face::after,
+.analog-clock--body .analog-clock .analog-clock--face .analog-clock--marking {
+  content: "";
+  position: absolute;
+  left: 49%;
+  top: 0%;
+  z-index: 0;
+  width: 5px;
+  height: 100%;
+  background: var(--lavender);
+}
+.analog-clock--body .analog-clock .analog-clock--face .analog-clock--marking {
+  background: #bdbdcb;
+  width: 3px;
+}
+.analog-clock--body .analog-clock .analog-clock--face .analog-clock--marking-one {
+  -webkit-transform: rotate(30deg);
+          transform: rotate(30deg);
+}
+.analog-clock--body .analog-clock .analog-clock--face .analog-clock--marking-two {
+  -webkit-transform: rotate(60deg);
+          transform: rotate(60deg);
+}
+.analog-clock--body .analog-clock .analog-clock--face .analog-clock--marking-tree {
+  -webkit-transform: rotate(120deg);
+          transform: rotate(120deg);
+}
+.analog-clock--body .analog-clock .analog-clock--face .analog-clock--marking-four {
+  -webkit-transform: rotate(150deg);
+          transform: rotate(150deg);
+}
+.analog-clock--body .analog-clock .analog-clock--face .analog-clock--face-inner {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  width: 80%;
+  height: 80%;
+  background: var(--dark-blue);
+  border-radius: 100%;
+  z-index: 1;
+}
+.analog-clock--body .analog-clock .analog-clock--face .analog-clock--face-inner::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 16px;
+  height: 16px;
+  border-radius: 18px;
+  margin-left: -9px;
+  margin-top: -6px;
+  background: #4d4b63;
+  z-index: 11;
+}
+.analog-clock--body .analog-clock .analog-clock--face .analog-clock--face-inner .analog-clock--hand {
+  width: 50%;
+  right: 50%;
+  height: 6px;
+  background: lawngreen;
+  position: absolute;
+  top: 50%;
+  border-radius: 6px;
+  -webkit-transform-origin: 100%;
+          transform-origin: 100%;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+  -webkit-transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+          transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+}
+.analog-clock--body .analog-clock .analog-clock--face .analog-clock--face-inner .analog-clock--hour-hand {
+  width: 30%;
+  z-index: 3;
+}
+.analog-clock--body .analog-clock .analog-clock--face .analog-clock--face-inner .analog-clock--min-hand {
+  height: 3px;
+  z-index: 10;
+  width: 40%;
+  background: white;
+}
+.analog-clock--body .analog-clock .analog-clock--face .analog-clock--face-inner .analog-clock--second-hand {
+  background: #ee791a;
+  width: 45%;
+  height: 2px;
 }
 
 @media (max-width: 480px) {
