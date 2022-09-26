@@ -20,6 +20,9 @@
   --light-yellow: #e7e7e0;
   --dark-blue: #09131d;
   --lavender: #a867d6;
+  --color-dark: #000;
+  //* Modern Gallery 
+  --modern-gallery-gap: .5em;
 }
 
 
@@ -37,7 +40,7 @@
   transform: translate(-50%, -50%);
 }
 
-//* ================ Main Index Page ================
+//* ================ Main Welcome Page ================
 
 .main-dimension--body{
   background-color: #010101;
@@ -121,8 +124,9 @@
         text-transform: uppercase;
         font-size: calc(var(--index) * 1.8);
         letter-spacing: calc(var(--index) / 3);
-        transform: translate3d(0, calc(var(--scrollTop) / -50), 0);
+        transform: translate3d(0, calc(var(--scrollTop) / -90), 0);
         will-change: transform;
+        margin-top: 100px;
         z-index: 4;
       }
       .main-article--works{
@@ -550,6 +554,78 @@
 }
 
 
+
+//* ================ Modern Gallery ================
+
+.modern-gallery--body{
+  overflow: hidden;
+  height: 100vh;
+  @include flex-center();
+  .modern-gallery--goback-button{
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    left: 0;
+  }
+}
+.modern-gallery--loaded .modern-gallery{
+  opacity: 1;
+}
+.modern-gallery--loaded .modern-gallery--title span{
+  opacity: 0;
+}
+.modern-gallery--title{
+  text-transform: uppercase;
+  font-weight: 200;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  letter-spacing: calc(var(--index) / 4);
+  font-size: calc(var(--index) * 2.4);
+  position: absolute;
+  text-align: center;
+  opacity: .9;
+  span{
+    display: block;
+    font-family: Helvetica, sans-serif;
+    font-size: calc(var(--index) * .8);
+    margin-top: 5px;
+
+  }
+}
+.modern-gallery{
+  width: 30vw;
+  column-width: 2em;
+  gap: var(--modern-gallery-gap);
+  transform: scale(8.3);
+  will-change: transform;
+  transition: transform .5s cubic-bezier(.075, 1, .25, 1), opacity 1s;
+  .gallery--item{
+    margin-bottom: var(--modern-gallery-gap);
+    transform: scale(1.001);
+    will-change: transform;
+    transition: .4s ease;
+    &:hover{
+      transform: scale(1.05);
+    }
+    img{
+      width: 100%;
+      display: block;
+    }
+  }
+}
+//* Dark Mode For Modern Gallery
+@media(prefers-color-scheme: dark) {
+  .modern-gallery--body {
+    background-color: var(--color-dark);
+    .modern-gallery--title{
+      filter: invert(100%);
+    }
+  }
+}
+
+
+
+
+
 //* ================ Adaptive parts ================
 @media (max-width: 480px) {
 
@@ -557,6 +633,7 @@
   .go-back--button {
     width: 33%;
   }
+  //* Main Welcome Page Adaptive
   .main-article--cards{
     flex-direction: column;
     .main-article--card{
@@ -567,5 +644,14 @@
       }
     }
   }
-
+  //* Modern Gallery Adaptive
+  .modern-gallery--body{
+    overflow: scroll;
+		display: block;
+		padding: var(--modern-gallery-gap);
+    .modern-gallery--title{
+      position: relative;
+      @include position-center()
+    }
+  }
 }
