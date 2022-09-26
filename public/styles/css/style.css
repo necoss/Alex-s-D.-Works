@@ -124,16 +124,15 @@
   text-transform: uppercase;
   font-size: calc(var(--index) * 1.8);
   letter-spacing: calc(var(--index) / 3);
-  -webkit-transform: translate3d(0, calc(var(--scrollTop) / -14.5), 0);
-          transform: translate3d(0, calc(var(--scrollTop) / -14.5), 0);
+  -webkit-transform: translate3d(0, calc(var(--scrollTop) / -50), 0);
+          transform: translate3d(0, calc(var(--scrollTop) / -50), 0);
   will-change: transform;
+  z-index: 4;
 }
 .main-dimension--body .main-article .main-article--content .main-article--works .main-article--cards {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -154,17 +153,21 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   color: var(--light-yellow);
   text-decoration: none;
   font-size: calc(var(--index) * 0.99);
-  width: calc(var(--index) * 35);
-  background: #0b1817;
+  height: calc(var(--index) * 14);
+  width: calc(var(--index) * 27);
+  background: rgba(0, 0, 0, 0.6);
   border-radius: 20px;
   -webkit-box-shadow: 0 0 15px #9e7d35;
           box-shadow: 0 0 15px #9e7d35;
-  height: calc(var(--index) * 12);
-  max-width: calc(var(--index) * 15);
   margin-right: calc(var(--index) * 3);
+  margin-top: calc(var(--index) * 2);
   padding: 10px 15px;
   -webkit-transition: 0.4s ease;
   transition: 0.4s ease;
@@ -172,8 +175,9 @@
 .main-dimension--body .main-article .main-article--content .main-article--works .main-article--cards .main-article--card:hover {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
-  -webkit-box-shadow: 0 0 40px #9e7d35;
-          box-shadow: 0 0 40px #9e7d35;
+  background: rgba(0, 0, 0, 0.8);
+  -webkit-box-shadow: 0 0 60px #9e7d35;
+          box-shadow: 0 0 60px #9e7d35;
 }
 .main-dimension--body .main-article .main-article--content .main-article--works .main-article--cards .main-article--card:last-child {
   margin-right: 0;
@@ -563,6 +567,6 @@
     margin-top: calc(var(--index) * 4);
   }
   .main-article--cards .main-article--card:first-child {
-    margin-top: 0px;
+    margin-top: 40px;
   }
 }

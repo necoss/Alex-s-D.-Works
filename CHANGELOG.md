@@ -5,6 +5,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## [Unreleased]
 
+## [1.3.1] - 2022-09-26
+### Changed:
+- Main Welcome Page:
+  - Size of the Cards
+  - Background of Cards
+  - Hover Shadow animations of Cards
+### Fixed: 
+- Main Welcome Page:
+  - Cards Position 
+
+
 ## [1.3] - 2022-09-26
 ### Added:
 - Main Welcome Page:
