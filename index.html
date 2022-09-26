@@ -1,19 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link type="image/png" sizes="96x96" rel="icon" href="./public/img/favicon/favicon.png">
-    <link rel="stylesheet" href="./public/styles/css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <title>Alexey Doroschenko - the best JavaScript developer ever!</title>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link type="image/png" sizes="96x96" rel="icon" href="./public/img/favicon/favicon.png">
+  <link rel="stylesheet" href="./public/styles/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <script src="./public/libs/gsap/gsap.min.js" defer></script>
+  <script src="./public/libs/gsap/ScrollTrigger.min.js" defer></script>
+  <script src="./public/libs/gsap/ScrollSmoother.min.js" defer></script>
+  <script src="./public/scripts/app.js" defer></script>
+
+  <title>Alex's D. JavaScript Dimension</title>
+
 </head>
-<body>
-    <header>
-        <a href="./public/pages/password-generator.html" class="link--password-generator"> Password Generator</a>
-        <a href="./public/pages/calculator.html">Calculator</a>
-        <a href="./public/pages/analog-clock.html">Analog Clock</a>
-    </header>
+
+<body class="main-dimension--body">
+
+  <div class="main-wrapper"> <!-- Тех. классы для gsap-->
+    <div class="main-content" style="will-change: transform;">
+      <header class="main-header">
+    
+        <div class="layers">
+          <div class="layers--header">
+            <div class="layers--caption">Welcome to Alex's D. Dimension</div>
+            <div class="layers--title">JavaScript Works</div>
+          </div>
+          <div class="layer layers--base" style="background-image: url(./public/img/header-images/layer-base.png);"></div>
+    
+          <div class="layer layers--middle" style="background-image: url(./public/img/header-images/layer-middle.png);"></div>
+    
+          <div class="layer layers--front" style="background-image: url(./public/img/header-images/layer-front.png);"></div>
+        </div>
+    
+      </header>
+    
+      <article class="main-article" style="background-image: url(./public/img/header-images/dungeon.jpg);">
+        <div class="main-article--content">
+          <h2 class="main-article--title container">My Works</h2>
+          <!-- <p class="main-article--paragraph">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi aspernatur deserunt, quam quia officiis tempore asperiores quibusdam ducimus nobis animi, cupiditate recusandae autem doloribus. Quasi deleniti veniam sit aliquam velit rem molestiae enim.</p> -->
+          <div class="main-article--works">
+            <div class="main-article--cards container">
+              <a href="./public/pages/password-generator.html" class="main-article--card main-card--one">
+                <h3 class="cards--title">Password Generator</h3>
+              </a>
+
+              <a href="./public/pages/calculator.html" class="main-article--card main-card--two">
+                <h3 class="cards--title">Calculator</h3>
+              </a>
+
+              <a href="./public/pages/analog-clock.html" class="main-article--card main-card--tree">
+                <h3 class="cards--title">Analog Clock</h3>
+              </a>
+
+            </div>
+          </div>
+        </div>
+        <div class="main-article--copyright">
+          <p>© Made by Alex D.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+
 </body>
+
 </html>

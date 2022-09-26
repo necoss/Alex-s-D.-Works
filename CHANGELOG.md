@@ -5,6 +5,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## [Unreleased]
 
+## [1.3] - 2022-09-26
+### Added:
+- Main Welcome Page:
+  - Paralax Effect
+  - Welcome Title
+  - Cards With My Works
+- Library GSAP for animations
+- Adaptive Version For Main Welcome Page
+
+
 ## [1.2] - 2022-09-25
 ### Added:
 - Analog Clock
