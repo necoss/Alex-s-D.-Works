@@ -5,7 +5,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## [Unreleased]
 
-## [1.4] - 2022-09-
+## [1.5] - 2022-10-01
+### Added:
+- Beauty of Nature Page
+### Changed: 
+- Removed Go Back Button from Desktop version
+### Fixed:
+- Position of Go Back Button
+
+## [1.4] - 2022-09-26
 ### Added:
 - Modern Gallery Page
 - Modern Gallery Page Adaptive

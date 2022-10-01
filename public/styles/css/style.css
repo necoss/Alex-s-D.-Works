@@ -21,6 +21,10 @@
   --lavender: #a867d6;
   --color-dark: #000;
   --modern-gallery-gap: .5em;
+  --beauty-of-nature-gutter: 30px;
+  --beauty-of-nature-side-small: 26;
+  --beauty-of-nature-side-big: 36;
+  --beauty-of-nature-depth: 4200px ;
 }
 
 .main-dimension--body {
@@ -572,17 +576,9 @@
   z-index: 100;
   top: 0;
   left: 0;
-}
-
-.modern-gallery--loaded .modern-gallery {
-  opacity: 1;
-}
-
-.modern-gallery--loaded .modern-gallery--title span {
   opacity: 0;
 }
-
-.modern-gallery--title {
+.modern-gallery--body .modern-gallery--title {
   text-transform: uppercase;
   font-weight: 200;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
@@ -592,14 +588,13 @@
   text-align: center;
   opacity: 0.9;
 }
-.modern-gallery--title span {
+.modern-gallery--body .modern-gallery--title span {
   display: block;
   font-family: Helvetica, sans-serif;
   font-size: calc(var(--index) * 0.8);
   margin-top: 5px;
 }
-
-.modern-gallery {
+.modern-gallery--body .modern-gallery {
   width: 30vw;
   -webkit-column-width: 2em;
      -moz-column-width: 2em;
@@ -613,7 +608,7 @@
   transition: transform 0.5s cubic-bezier(0.075, 1, 0.25, 1), opacity 1s;
   transition: transform 0.5s cubic-bezier(0.075, 1, 0.25, 1), opacity 1s, -webkit-transform 0.5s cubic-bezier(0.075, 1, 0.25, 1);
 }
-.modern-gallery .gallery--item {
+.modern-gallery--body .modern-gallery .gallery--item {
   margin-bottom: var(--modern-gallery-gap);
   -webkit-transform: scale(1.001);
           transform: scale(1.001);
@@ -621,24 +616,142 @@
   -webkit-transition: 0.4s ease;
   transition: 0.4s ease;
 }
-.modern-gallery .gallery--item:hover {
+.modern-gallery--body .modern-gallery .gallery--item:hover {
   -webkit-transform: scale(1.05);
           transform: scale(1.05);
 }
-.modern-gallery .gallery--item img {
+.modern-gallery--body .modern-gallery .gallery--item img {
   width: 100%;
   display: block;
 }
-
 @media (prefers-color-scheme: dark) {
-  .modern-gallery--body {
+  .modern-gallery--body .modern-gallery--body {
     background-color: var(--color-dark);
   }
-  .modern-gallery--body .modern-gallery--title {
+  .modern-gallery--body .modern-gallery--body .modern-gallery--title {
     -webkit-filter: invert(100%);
             filter: invert(100%);
   }
 }
+
+.modern-gallery--loaded .modern-gallery {
+  opacity: 1;
+}
+
+.modern-gallery--loaded .modern-gallery--title span {
+  opacity: 0;
+}
+
+.beauty-of-nature--body {
+  background-color: var(--color-dark);
+  color: white;
+  font-family: "Raleway";
+  font-size: calc(var(--index) * 0.8);
+  font-weight: 300;
+  line-height: 1.75;
+  height: var(--beauty-of-nature-depth);
+}
+.beauty-of-nature--body h1, .beauty-of-nature--body h2, .beauty-of-nature--body h3, .beauty-of-nature--body h4 {
+  font-weight: 100;
+  text-transform: uppercase;
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+  line-height: 1;
+}
+.beauty-of-nature--body .beauty-of-nature--container {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  -webkit-perspective: 1500px;
+          perspective: 1500px;
+}
+.beauty-of-nature--body .beauty-of-nature--container .beauty-of-nature--gallery {
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  height: 100%;
+}
+.beauty-of-nature--body .beauty-of-nature--container .beauty-of-nature--gallery .beauty-of-nature--frame {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: cubic-bezier(0.075, 0.5, 0, 1), opacity 0.75s ease;
+  transition: cubic-bezier(0.075, 0.5, 0, 1), opacity 0.75s ease;
+  will-change: transform;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+.beauty-of-nature--body .beauty-of-nature--container .beauty-of-nature--gallery .beauty-of-nature--frame .frame-content .frame-content--title {
+  text-align: center;
+  font-size: calc(var(--index) * 3.3);
+}
+.beauty-of-nature--body .beauty-of-nature--container .beauty-of-nature--gallery .beauty-of-nature--frame .frame-content .frame-media {
+  position: relative;
+  width: calc(var(--index) * var(--beauty-of-nature-side-small));
+  height: calc(var(--index) * var(--beauty-of-nature-side-big));
+  background-position: center;
+  background-size: cover;
+}
+.beauty-of-nature--body .beauty-of-nature--container .beauty-of-nature--gallery .beauty-of-nature--frame .frame-content .frame-media--left {
+  right: calc(var(--beauty-of-nature-side-small) / 2 * var(--index) + var(--beauty-of-nature-gutter));
+}
+.beauty-of-nature--body .beauty-of-nature--container .beauty-of-nature--gallery .beauty-of-nature--frame .frame-content .frame-media--right {
+  left: calc(var(--beauty-of-nature-side-small) / 2 * var(--index) + var(--beauty-of-nature-gutter));
+}
+.beauty-of-nature--body .beauty-of-nature--container .beauty-of-nature--gallery .beauty-of-nature--frame .frame-content video.frame-media {
+  width: calc(var(--index) * var(--beauty-of-nature-side-big));
+  height: calc(var(--index) * var(--beauty-of-nature-side-small));
+}
+.beauty-of-nature--body .beauty-of-nature--container .beauty-of-nature--gallery .beauty-of-nature--frame .frame-content video.frame-media--right {
+  left: calc(var(--beauty-of-nature-side-big) / 2 * var(--index) + var(--beauty-of-nature-gutter));
+}
+.beauty-of-nature--body .beauty-of-nature--container .beauty-of-nature--gallery .beauty-of-nature--frame .frame-content--text-right > * {
+  position: relative;
+  left: 18vw;
+}
+.beauty-of-nature--body .beauty-of-nature--container .beauty-of-nature--gallery .beauty-of-nature--frame .frame-content--text-right h3 {
+  font-size: calc(var(--index) * 3);
+}
+.beauty-of-nature--body .beauty-of-nature--container .beauty-of-nature--gallery .beauty-of-nature--frame .frame-content--text-right p {
+  max-width: 30vw;
+  margin-top: 5vh;
+}
+.beauty-of-nature--body .beauty-of-nature--container .beauty-of-nature--gallery .beauty-of-nature--frame .frame-content--text-left > * {
+  position: relative;
+  right: 18vw;
+}
+.beauty-of-nature--body .beauty-of-nature--container .beauty-of-nature--gallery .beauty-of-nature--frame .frame-content--text-left h3 {
+  font-size: calc(var(--index) * 3);
+}
+.beauty-of-nature--body .beauty-of-nature--container .beauty-of-nature--gallery .beauty-of-nature--frame .frame-content--text-left p {
+  max-width: 30vw;
+  margin-top: 5vh;
+}
+.beauty-of-nature--body .beauty-of-nature--container .beauty-of-nature--gallery .frame-bg {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+.beauty-of-nature--body .beauty-of-nature--soundbutton {
+  position: fixed;
+  bottom: 5vh;
+  right: 5vw;
+  cursor: pointer;
+  width: 25px;
+  -webkit-transition: 0.25s ease;
+  transition: 0.25s ease;
+}
+.beauty-of-nature--body .beauty-of-nature--soundbutton.paused {
+  opacity: 0.25;
+}
+
 @media (max-width: 480px) {
   .go-back--button {
     width: 33%;
@@ -670,5 +783,9 @@
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
+  }
+  .modern-gallery--body .modern-gallery--goback-button {
+    opacity: 1;
+    margin-left: 20px;
   }
 }

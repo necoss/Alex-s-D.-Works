@@ -23,6 +23,11 @@
   --color-dark: #000;
   //* Modern Gallery 
   --modern-gallery-gap: .5em;
+  //* Beauty Of Nature
+  --beauty-of-nature-gutter: 30px;
+  --beauty-of-nature-side-small: 26;
+  --beauty-of-nature-side-big: 36;
+  --beauty-of-nature-depth: 4200px
 }
 
 
@@ -553,10 +558,7 @@
   }
 }
 
-
-
 //* ================ Modern Gallery ================
-
 .modern-gallery--body{
   overflow: hidden;
   height: 100vh;
@@ -566,6 +568,54 @@
     z-index: 100;
     top: 0;
     left: 0;
+    opacity: 0;
+  }
+  .modern-gallery--title{
+    text-transform: uppercase;
+    font-weight: 200;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    letter-spacing: calc(var(--index) / 4);
+    font-size: calc(var(--index) * 2.4);
+    position: absolute;
+    text-align: center;
+    opacity: .9;
+    span{
+      display: block;
+      font-family: Helvetica, sans-serif;
+      font-size: calc(var(--index) * .8);
+      margin-top: 5px;
+  
+    }
+  }
+  .modern-gallery{
+    width: 30vw;
+    column-width: 2em;
+    gap: var(--modern-gallery-gap);
+    transform: scale(8.3);
+    will-change: transform;
+    transition: transform .5s cubic-bezier(.075, 1, .25, 1), opacity 1s;
+    .gallery--item{
+      margin-bottom: var(--modern-gallery-gap);
+      transform: scale(1.001);
+      will-change: transform;
+      transition: .4s ease;
+      &:hover{
+        transform: scale(1.05);
+      }
+      img{
+        width: 100%;
+        display: block;
+      }
+    }
+  }
+  //* Dark Mode For Modern Gallery
+  @media(prefers-color-scheme: dark) {
+    .modern-gallery--body {
+      background-color: var(--color-dark);
+      .modern-gallery--title{
+        filter: invert(100%);
+      }
+    }
   }
 }
 .modern-gallery--loaded .modern-gallery{
@@ -574,55 +624,108 @@
 .modern-gallery--loaded .modern-gallery--title span{
   opacity: 0;
 }
-.modern-gallery--title{
-  text-transform: uppercase;
-  font-weight: 200;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  letter-spacing: calc(var(--index) / 4);
-  font-size: calc(var(--index) * 2.4);
-  position: absolute;
-  text-align: center;
-  opacity: .9;
-  span{
-    display: block;
-    font-family: Helvetica, sans-serif;
-    font-size: calc(var(--index) * .8);
-    margin-top: 5px;
 
+//* ================ Beauty of Nature ================
+.beauty-of-nature--body{
+  background-color: var(--color-dark);
+  color: white;
+  font-family: 'Raleway';
+  font-size: calc(var(--index) * .8);
+  font-weight: 300;
+  line-height: 1.75;
+  height: var(--beauty-of-nature-depth);
+  h1, h2, h3, h4{
+    font-weight: 100;
+    text-transform: uppercase;
+    width: min-content;
+    line-height: 1;
+  }
+  .beauty-of-nature--container{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    perspective: 1500px;
+    .beauty-of-nature--gallery{
+      transform-style: preserve-3d;
+      height: 100%;
+      .beauty-of-nature--frame{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        @include flex-center();
+        transition: cubic-bezier(.075, .5, 0, 1), opacity .75s ease;
+        will-change: transform;
+        transform-style: preserve-3d;
+        .frame-content{
+          .frame-content--title{
+            text-align: center;
+            font-size: calc(var(--index) * 3.3);
+          }
+          .frame-media{
+            position: relative;
+            width: calc(var(--index) * var(--beauty-of-nature-side-small));
+            height: calc(var(--index) * var(--beauty-of-nature-side-big));
+            background-position: center;
+            background-size: cover;
+          }
+          .frame-media--left{
+            right: calc(var(--beauty-of-nature-side-small) / 2 * var(--index) + var(--beauty-of-nature-gutter));
+          }
+          .frame-media--right{
+            left: calc(var(--beauty-of-nature-side-small) / 2 * var(--index) + var(--beauty-of-nature-gutter));
+          }
+          video.frame-media{
+            width: calc(var(--index) * var(--beauty-of-nature-side-big));
+            height: calc(var(--index) * var(--beauty-of-nature-side-small));
+          }
+          video.frame-media--right{
+            left: calc(var(--beauty-of-nature-side-big) / 2 * var(--index) + var(--beauty-of-nature-gutter));
+          }
+        }
+        .frame-content--text-right {
+          & > *{
+            position: relative;
+            left: 18vw;
+          }
+          h3{
+            font-size: calc(var(--index) * 3);
+          }
+          p{
+            max-width: 30vw;
+            margin-top: 5vh;
+          }
+        }
+        .frame-content--text-left {
+          & > *{
+            position: relative;
+            right: 18vw;
+          }
+          h3{
+            font-size: calc(var(--index) * 3);
+          }
+          p{
+            max-width: 30vw;
+            margin-top: 5vh;
+          }
+        }
+      }
+      .frame-bg{
+        background-color: rgb(0 0 0 / .8);
+      }
+    }
+  }
+  .beauty-of-nature--soundbutton{
+    position: fixed;
+    bottom: 5vh;
+    right: 5vw;
+    cursor: pointer;
+    width: 25px;
+    transition: .25s ease;
+    &.paused{
+      opacity: 0.25;
+    }
   }
 }
-.modern-gallery{
-  width: 30vw;
-  column-width: 2em;
-  gap: var(--modern-gallery-gap);
-  transform: scale(8.3);
-  will-change: transform;
-  transition: transform .5s cubic-bezier(.075, 1, .25, 1), opacity 1s;
-  .gallery--item{
-    margin-bottom: var(--modern-gallery-gap);
-    transform: scale(1.001);
-    will-change: transform;
-    transition: .4s ease;
-    &:hover{
-      transform: scale(1.05);
-    }
-    img{
-      width: 100%;
-      display: block;
-    }
-  }
-}
-//* Dark Mode For Modern Gallery
-@media(prefers-color-scheme: dark) {
-  .modern-gallery--body {
-    background-color: var(--color-dark);
-    .modern-gallery--title{
-      filter: invert(100%);
-    }
-  }
-}
-
-
 
 
 
@@ -652,6 +755,10 @@
     .modern-gallery--title{
       position: relative;
       @include position-center()
+    }
+    .modern-gallery--goback-button{
+      opacity: 1;
+      margin-left: 20px;
     }
   }
 }
